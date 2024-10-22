@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "SpeakAnime",
+    "version": "0.0.1",
+    "description": "AnimeVoice vous permet d'accéder instantanément à votre site préféré d'anime en utilisant votre voix ! Dites simplement 'Anime-sama' et laissez la magie opérer.",
+    "action": {
+        "default_popup": "index.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://anime-sama.fr/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://anime-sama.fr/*"],
+            "js": ["content.js"]
+        }
+    ]
+}
